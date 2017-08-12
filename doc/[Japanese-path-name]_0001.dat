@@ -1,0 +1,8 @@
+m4v=-codec:v mpeg4 -qscale:v 1 -ab 160k
+mp4=-codec:v mpeg4 -qscale:v 1 -ab 160k
+mpg=-codec:v mpeg4 -qscale:v 1 -ab 160k
+mpeg=-codec:v mpeg4 -qscale:v 1 -ab 160k
+avi=-qscale:v 1 -ab 160k
+wmv=-qscale:v 1 -ab 160k
+ogv=-qscale:v 10 -ab 160k
+*=
