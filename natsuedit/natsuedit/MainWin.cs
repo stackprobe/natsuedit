@@ -722,6 +722,11 @@ namespace Charlotte
 		private bool _needRefreshVideoFrameNoSeek = false;
 		private bool _needRefreshEnable = false;
 
+		private void imgVideo_Click(object sender, EventArgs e)
+		{
+			// noop
+		}
+
 		private void imgVideo_MouseDown(object sender, MouseEventArgs e)
 		{
 			if (Gnd.i.md == null)
