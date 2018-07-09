@@ -1,3 +1,7 @@
-REN natsuedit\natsuedit\[Japanese-path-name]_0001.cs Effect枠外切り捨て.cs
+REN natsuedit\natsuedit\[Japanese-path-name]_0001.resx Input字幕Dlg.resx
+REN natsuedit\natsuedit\[Japanese-path-name]_0004.cs Input字幕Dlg.Designer.cs
+REN natsuedit\natsuedit\[Japanese-path-name]_0003.cs Input字幕Dlg.cs
+REN natsuedit\natsuedit\[Japanese-path-name]_0002.cs Effect枠外切り捨て.cs
+REN natsuedit\natsuedit\[Japanese-path-name]_0001.cs Effect字幕入力.cs
 REN doc\[Japanese-path-name]_0001.txt マニュアル.txt
 REN doc\[Japanese-path-name]_0001.dat extensions_options__wmpで再生可能なmp4.dat

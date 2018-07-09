@@ -60,9 +60,16 @@
     </Compile>
     <Compile Include="EffectBokashi.cs" />
     <Compile Include="EffectCut.cs" />
+    <Compile Include="Effect字幕入力.cs" />
     <Compile Include="Effect枠外切り捨て.cs" />
     <Compile Include="ExtensionsOptions.cs" />
     <Compile Include="FFmpegBinTester.cs" />
+    <Compile Include="Input字幕Dlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Input字幕Dlg.Designer.cs">
+      <DependentUpon>Input字幕Dlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="MovieExtensions.cs" />
     <Compile Include="BusyDlg.cs">
       <SubType>Form</SubType>
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FFmpegDirDlg.resx">
       <DependentUpon>FFmpegDirDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Input字幕Dlg.resx">
+      <DependentUpon>Input字幕Dlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWin.resx">
       <DependentUpon>MainWin.cs</DependentUpon>

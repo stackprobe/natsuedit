@@ -1003,6 +1003,7 @@ namespace Charlotte
 			this.ぼかしを入れるBToolStripMenuItem.Enabled = videoSelected && timeSelected;
 			this.ぼかし2KToolStripMenuItem.Enabled = videoSelected && timeSelected;
 			this.枠外切り捨てToolStripMenuItem.Enabled = videoSelected;
+			this.字幕を入れるToolStripMenuItem.Enabled = timeSelected;
 
 			//this.ツールLToolStripMenuItem.Enabled = true;
 			//this.設定SToolStripMenuItem.Enabled = true;
@@ -1182,6 +1183,40 @@ namespace Charlotte
 				});
 
 				throw new Completed();
+			}
+			catch (Exception ex)
+			{
+				FailedOperation.caught(ex);
+			}
+
+			refreshVideoFrame();
+			refreshStatus();
+
+			this.mtEnabled = true;
+		}
+
+		private void 字幕を入れるToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (Gnd.i.md == null)
+				return;
+
+			this.mtEnabled = false;
+
+			try
+			{
+				using (Input字幕Dlg f = new Input字幕Dlg())
+				{
+					f.ShowDialog();
+
+					if (f.OkPressed)
+					{
+						BusyDlg.perform(delegate
+						{
+							new Effect字幕入力().perform(f.Ret_Line1, f.Ret_Align1, f.Ret_Line2, f.Ret_Align2);
+						});
+						throw new Completed();
+					}
+				}
 			}
 			catch (Exception ex)
 			{

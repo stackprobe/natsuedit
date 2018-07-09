@@ -30,5 +30,12 @@ namespace Charlotte
 		public const string V_IMG_VCODEC = "bmp";
 		public static readonly ImageFormat V_IMG_FORMAT = ImageFormat.Bmp;
 #endif
+
+		public enum LineAlign_e
+		{
+			左寄せ,
+			中央,
+			右寄せ,
+		}
 	}
 }

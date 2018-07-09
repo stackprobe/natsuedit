@@ -66,6 +66,7 @@
 			this.ぼかしを入れるBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ぼかし2KToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.枠外切り捨てToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.字幕を入れるToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ツールLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.設定SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ffmpegのパスを変更するFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -338,7 +339,8 @@
             this.切り捨てるCToolStripMenuItem,
             this.ぼかしを入れるBToolStripMenuItem,
             this.ぼかし2KToolStripMenuItem,
-            this.枠外切り捨てToolStripMenuItem});
+            this.枠外切り捨てToolStripMenuItem,
+            this.字幕を入れるToolStripMenuItem});
 			this.エフェクトEToolStripMenuItem.Name = "エフェクトEToolStripMenuItem";
 			this.エフェクトEToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
 			this.エフェクトEToolStripMenuItem.Text = "エフェクト(&E)";
@@ -346,30 +348,37 @@
 			// 切り捨てるCToolStripMenuItem
 			// 
 			this.切り捨てるCToolStripMenuItem.Name = "切り捨てるCToolStripMenuItem";
-			this.切り捨てるCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-			this.切り捨てるCToolStripMenuItem.Text = "切り捨てる";
+			this.切り捨てるCToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+			this.切り捨てるCToolStripMenuItem.Text = "切り捨てる　【時間選択】";
 			this.切り捨てるCToolStripMenuItem.Click += new System.EventHandler(this.切り捨てるCToolStripMenuItem_Click);
 			// 
 			// ぼかしを入れるBToolStripMenuItem
 			// 
 			this.ぼかしを入れるBToolStripMenuItem.Name = "ぼかしを入れるBToolStripMenuItem";
-			this.ぼかしを入れるBToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-			this.ぼかしを入れるBToolStripMenuItem.Text = "ぼかし１";
+			this.ぼかしを入れるBToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+			this.ぼかしを入れるBToolStripMenuItem.Text = "ぼかし１　【画面+時間選択】";
 			this.ぼかしを入れるBToolStripMenuItem.Click += new System.EventHandler(this.ぼかしを入れるBToolStripMenuItem_Click);
 			// 
 			// ぼかし2KToolStripMenuItem
 			// 
 			this.ぼかし2KToolStripMenuItem.Name = "ぼかし2KToolStripMenuItem";
-			this.ぼかし2KToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-			this.ぼかし2KToolStripMenuItem.Text = "ぼかし２";
+			this.ぼかし2KToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+			this.ぼかし2KToolStripMenuItem.Text = "ぼかし２　【画面+時間選択】";
 			this.ぼかし2KToolStripMenuItem.Click += new System.EventHandler(this.ぼかし2KToolStripMenuItem_Click);
 			// 
 			// 枠外切り捨てToolStripMenuItem
 			// 
 			this.枠外切り捨てToolStripMenuItem.Name = "枠外切り捨てToolStripMenuItem";
-			this.枠外切り捨てToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-			this.枠外切り捨てToolStripMenuItem.Text = "枠外切り捨て";
+			this.枠外切り捨てToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+			this.枠外切り捨てToolStripMenuItem.Text = "枠外切り捨て　【画面選択】";
 			this.枠外切り捨てToolStripMenuItem.Click += new System.EventHandler(this.枠外切り捨てToolStripMenuItem_Click);
+			// 
+			// 字幕を入れるToolStripMenuItem
+			// 
+			this.字幕を入れるToolStripMenuItem.Name = "字幕を入れるToolStripMenuItem";
+			this.字幕を入れるToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+			this.字幕を入れるToolStripMenuItem.Text = "字幕を入れる　【時間選択】";
+			this.字幕を入れるToolStripMenuItem.Click += new System.EventHandler(this.字幕を入れるToolStripMenuItem_Click);
 			// 
 			// ツールLToolStripMenuItem
 			// 
@@ -505,6 +514,7 @@
 		private System.Windows.Forms.ToolStripMenuItem 枠外切り捨てToolStripMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel lbl画面選択;
 		private System.Windows.Forms.ToolStripStatusLabel lbl時間選択;
+		private System.Windows.Forms.ToolStripMenuItem 字幕を入れるToolStripMenuItem;
 	}
 }
 
