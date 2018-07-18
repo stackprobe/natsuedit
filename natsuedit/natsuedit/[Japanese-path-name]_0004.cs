@@ -45,7 +45,7 @@
 			this.Line1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.Line1.Location = new System.Drawing.Point(66, 12);
-			this.Line1.MaxLength = 100;
+			this.Line1.MaxLength = 50;
 			this.Line1.Name = "Line1";
 			this.Line1.Size = new System.Drawing.Size(371, 27);
 			this.Line1.TabIndex = 1;
@@ -59,6 +59,7 @@
 			this.btnOk.TabIndex = 7;
 			this.btnOk.Text = "OK";
 			this.btnOk.UseVisualStyleBackColor = true;
+			this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
 			// btnCancel
 			// 
@@ -69,6 +70,7 @@
 			this.btnCancel.TabIndex = 8;
 			this.btnCancel.Text = "キャンセル";
 			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// LblLine1
 			// 
@@ -84,7 +86,7 @@
 			this.Line2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.Line2.Location = new System.Drawing.Point(66, 45);
-			this.Line2.MaxLength = 100;
+			this.Line2.MaxLength = 50;
 			this.Line2.Name = "Line2";
 			this.Line2.Size = new System.Drawing.Size(371, 27);
 			this.Line2.TabIndex = 4;
@@ -107,6 +109,7 @@
 			this.CB複数行.TabIndex = 6;
 			this.CB複数行.Text = "２行入力する。";
 			this.CB複数行.UseVisualStyleBackColor = true;
+			this.CB複数行.CheckedChanged += new System.EventHandler(this.CB複数行_CheckedChanged);
 			// 
 			// Align1
 			// 

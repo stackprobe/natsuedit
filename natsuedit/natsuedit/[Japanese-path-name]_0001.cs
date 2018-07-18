@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Tools;
+using System.Drawing;
 
 namespace Charlotte
 {
 	public class Effect字幕入力
 	{
+		private int StartIndex;
+		private int EndIndex;
+
+		private Bitmap Img;
+		private int Img_W;
+		private int Img_H;
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -23,7 +31,30 @@ namespace Charlotte
 			if (Gnd.i.md.ed.a.selectEnd == -1) // ? ! 時間選択完了
 				throw new FailedOperation("時間を選択して下さい。");
 
-			throw null; // TODO
+			StartIndex = Gnd.i.md.ed.a.selectBegin; // ここから
+			EndIndex = Gnd.i.md.ed.a.selectEnd; // ここまで(これを含む！)
+
+			for (int index = StartIndex; index < EndIndex; index++)
+			{
+				Img = Gnd.i.md.ed.v.getImage(index);
+				Img_W = Img.Width;
+				Img_H = Img.Height;
+
+
+
+				// TODO edit Img
+
+
+
+				Gnd.i.md.ed.v.setImage(index, Img);
+
+				Img.Dispose();
+				Img = null;
+				Img_W = -1;
+				Img_H = -1;
+
+				GC.Collect();
+			}
 		}
 	}
 }

@@ -7,6 +7,11 @@ namespace Charlotte.Tools
 {
 	public class JString
 	{
+		public static bool isJString(string str, bool okJpn, bool okRet, bool okTab, bool okSpc)
+		{
+			return toJString(str, okJpn, okRet, okTab, okSpc) == str;
+		}
+
 		public static string toJString(string str, bool okJpn, bool okRet, bool okTab, bool okSpc)
 		{
 			if (str == null)

@@ -52,6 +52,11 @@ namespace Charlotte
 			return new Bitmap(new MemoryStream(File.ReadAllBytes(getFile(index))));
 		}
 
+		public void setImage(int index, Bitmap img)
+		{
+			img.Save(getFile(index), Consts.V_IMG_FORMAT);
+		}
+
 		public XYPoint selectOrig; // null == not_範囲選択中
 		public XYPoint selectDest; // null == not_範囲選択中
 		public Rect selectRect; // null == 未選択
