@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Charlotte.Tools;
+using System.IO;
 
 namespace Charlotte
 {
@@ -59,9 +60,11 @@ namespace Charlotte
 
 		private void btnOk_Click(object sender, EventArgs e)
 		{
+			string dir = this.txtFFmpegDir.Text;
+
 			// save
 			{
-				Gnd.i.ffmpegDir = this.txtFFmpegDir.Text;
+				Gnd.i.ffmpegDir = dir;
 			}
 			this.Close();
 		}
