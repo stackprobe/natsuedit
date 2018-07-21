@@ -53,6 +53,34 @@ namespace Charlotte.Tools
 					v1.g == v2.g &&
 					v1.b == v2.b;
 			}
+
+			public int getLevel(int colorIdx)
+			{
+				switch (colorIdx)
+				{
+					case 0: return this.a;
+					case 1: return this.r;
+					case 2: return this.g;
+					case 3: return this.b;
+
+					default:
+						throw null; // never
+				}
+			}
+
+			public void setLevel(int colorIdx, int level)
+			{
+				switch (colorIdx)
+				{
+					case 0: this.a = level; break;
+					case 1: this.r = level; break;
+					case 2: this.g = level; break;
+					case 3: this.b = level; break;
+
+					default:
+						throw null; // never
+				}
+			}
 		}
 
 		public static Bmp create(Bitmap src)
@@ -171,12 +199,21 @@ namespace Charlotte.Tools
 
 		public Bmp addMargin(int l, int t, int r, int b, Dot dot)
 		{
-			throw null; // TODO
+			Bmp dest = new Bmp(l + table.w + r, t + table.h + b, dot);
+
+			for (int x = 0; x < table.w; x++)
+			{
+				for (int y = 0; y < table.h; y++)
+				{
+					dest.table[l + x, t + y] = table[x, y];
+				}
+			}
+			return dest;
 		}
 
 		public Bmp expand(int w, int h)
 		{
-			throw null; // unimpl
+			return new Expand().Main(this, w, h);
 		}
 
 		public Bmp copy()
