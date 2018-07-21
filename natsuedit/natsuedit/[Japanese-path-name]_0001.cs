@@ -41,12 +41,10 @@ namespace Charlotte
 			Img.Dispose();
 			Img = null;
 
-
+			GC.Collect();
 
 			Bitmap j1;
 			Bitmap j2;
-
-
 
 			if (line2 == "")
 			{
@@ -58,8 +56,6 @@ namespace Charlotte
 				j1 = Make字幕(line1);
 				j2 = Make字幕(line2);
 			}
-
-
 
 			for (int index = StartIndex; index < EndIndex; index++)
 			{
@@ -78,7 +74,109 @@ namespace Charlotte
 
 		private Bitmap Make字幕(string line)
 		{
-			throw null; // TODO
+			Bmp.Dot dotBack = new Bmp.Dot(0, 0, 0, 0);
+			Bmp.Dot dotExte = new Bmp.Dot(255, 0, 0, 0);
+			Bmp.Dot dotInte = new Bmp.Dot(255, 255, 255, 255);
+
+			Bmp bmp;
+
+			using (Bitmap b = new Bitmap(10000, 400))
+			{
+				using (Graphics g = Graphics.FromImage(b))
+				{
+					g.FillRectangle(Brushes.Black, 0f, 0f, (float)b.Width, (float)b.Height);
+					g.DrawString(line, new Font("メイリオ", 300f, FontStyle.Regular), Brushes.White, 50f, 50f);
+				}
+				bmp = Bmp.create(b);
+			}
+
+			bmp.select(dot => dot.r < 128 ? dotBack : dotInte);
+
+			{
+				Rect rect = bmp.getRect(dot => dot.IsSame(dotInte));
+
+				Gnd.i.logger.writeLine("rect.l: " + rect.l);
+				Gnd.i.logger.writeLine("rect.t: " + rect.t);
+				Gnd.i.logger.writeLine("rect.r: " + rect.r);
+				Gnd.i.logger.writeLine("rect.b: " + rect.b);
+
+				bmp = bmp.getRectBmp(
+					IntTools.toInt(rect.l),
+					IntTools.toInt(rect.t),
+					IntTools.toInt(rect.w),
+					IntTools.toInt(rect.h)
+					);
+			}
+
+			Bmp bmpExte;
+			bmpExte = bmp.copy();
+			bmpExte.select(dot => dot.IsSame(dotInte) ? dotExte : dotBack);
+
+			using (Bitmap b = new Bitmap(bmp.table.w + 60, bmp.table.h + 60))
+			{
+				using (Graphics g = Graphics.FromImage(b))
+				{
+					g.Clear(Color.Transparent);
+
+					{
+						Bitmap be = bmpExte.getBitmap();
+
+						g.DrawImage(be, 10f, 10f);
+						g.DrawImage(be, 30f, 10f);
+						g.DrawImage(be, 50f, 10f);
+						g.DrawImage(be, 50f, 30f);
+						g.DrawImage(be, 50f, 50f);
+						g.DrawImage(be, 30f, 50f);
+						g.DrawImage(be, 10f, 50f);
+						g.DrawImage(be, 10f, 30f);
+					}
+
+					g.DrawImage(bmp.getBitmap(), 30f, 30f);
+				}
+				bmp = Bmp.create(b);
+			}
+
+			{
+				Rect rect = bmp.getRect(dot => dot.IsSame(dotBack) == false);
+
+				bmp = bmp.getRectBmp(
+					IntTools.toInt(rect.l),
+					IntTools.toInt(rect.t),
+					IntTools.toInt(rect.w),
+					IntTools.toInt(rect.h)
+					);
+			}
+
+			bmp = bmp.addMargin(10, 10, 10, 10, dotBack);
+			bmp = bmp.expand(
+				IntTools.toInt(bmp.table.w / 3.0),
+				IntTools.toInt(bmp.table.h / 3.0)
+				);
+
+			{
+				Rect rect = bmp.getRect(dot => dot.IsSame(dotBack) == false);
+
+				bmp = bmp.getRectBmp(
+					IntTools.toInt(rect.l),
+					IntTools.toInt(rect.t),
+					IntTools.toInt(rect.w),
+					IntTools.toInt(rect.h)
+					);
+			}
+
+			{
+				int w;
+				int h;
+
+				h = IntTools.toInt(Img_H * 0.1);
+				w = IntTools.toInt(h * bmp.table.w * 1.0 / bmp.table.h);
+
+				w = Math.Min(w, Img_W);
+
+				bmp = bmp.expand(w, h);
+			}
+
+			return bmp.getBitmap();
 		}
 
 		private void Put字幕(Bitmap j1, Consts.LineAlign_e align1, Bitmap j2, Consts.LineAlign_e align2)

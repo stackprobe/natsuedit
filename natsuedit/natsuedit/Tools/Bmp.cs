@@ -39,6 +39,20 @@ namespace Charlotte.Tools
 			{
 				return Color.FromArgb(a, r, g, b);
 			}
+
+			public bool IsSame(Dot other)
+			{
+				return IsSame(this, other);
+			}
+
+			public static bool IsSame(Dot v1, Dot v2)
+			{
+				return
+					v1.a == v2.a &&
+					v1.r == v2.r &&
+					v1.g == v2.g &&
+					v1.b == v2.b;
+			}
 		}
 
 		public static Bmp create(Bitmap src)
@@ -67,11 +81,6 @@ namespace Charlotte.Tools
 				}
 			}
 			return dest;
-		}
-
-		public Bmp expand(int w, int h)
-		{
-			throw null; // unimpl
 		}
 
 		public void drawLine(int x1, int y1, int x2, int y2, Dot dot)
@@ -109,7 +118,7 @@ namespace Charlotte.Tools
 			}
 		}
 
-		public Bmp getRect(int l, int t, int w, int h)
+		public Bmp getRectBmp(int l, int t, int w, int h)
 		{
 			Bmp dest = new Bmp(w, h, Dot.getDot(Color.White));
 
@@ -121,6 +130,58 @@ namespace Charlotte.Tools
 				}
 			}
 			return dest;
+		}
+
+		public Rect getRect(Func<Dot, bool> accepter)
+		{
+			int l = table.w;
+			int t = table.h;
+			int r = -1;
+			int b = -1;
+
+			for (int x = 0; x < table.w; x++)
+			{
+				for (int y = 0; y < table.h; y++)
+				{
+					if (accepter(table[x, y]))
+					{
+						l = Math.Min(l, x);
+						t = Math.Min(t, y);
+						r = Math.Max(r, x);
+						b = Math.Max(b, y);
+					}
+				}
+			}
+			if (r == -1)
+				throw new Exception("有効なドットが見つかりません。");
+
+			return Rect.ltrb(l, t, r + 1, b + 1);
+		}
+
+		public void select(Func<Dot, Dot> selecter)
+		{
+			for (int x = 0; x < table.w; x++)
+			{
+				for (int y = 0; y < table.h; y++)
+				{
+					table[x, y] = selecter(table[x, y]);
+				}
+			}
+		}
+
+		public Bmp addMargin(int l, int t, int r, int b, Dot dot)
+		{
+			throw null; // TODO
+		}
+
+		public Bmp expand(int w, int h)
+		{
+			throw null; // unimpl
+		}
+
+		public Bmp copy()
+		{
+			return this.getRectBmp(0, 0, table.w, table.h);
 		}
 	}
 }

@@ -62,6 +62,18 @@ namespace Charlotte.Tools
 			h = b - t;
 		}
 
+		public double r
+		{
+			get { return getR(); }
+			set { setR(value); }
+		}
+
+		public double b
+		{
+			get { return getB(); }
+			set { setB(value); }
+		}
+
 		public void adjustInside(Rect screen)
 		{
 			double new_w = screen.w;

@@ -32,5 +32,18 @@ namespace Charlotte.Tools
 		{
 			return _table.get(x, y);
 		}
+
+		public T this[int x, int y]
+		{
+			set
+			{
+				set(x, y, value);
+			}
+
+			get
+			{
+				return get(x, y);
+			}
+		}
 	}
 }
