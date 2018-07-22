@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Charlotte
 {
@@ -57,7 +58,15 @@ namespace Charlotte
 				j2 = Make字幕(line2);
 			}
 
-			for (int index = StartIndex; index < EndIndex; index++)
+			// test
+			{
+				if (j1 != null)
+					j1.Save(@"C:\temp\j1.png", ImageFormat.Png);
+
+				j2.Save(@"C:\temp\j2.png", ImageFormat.Png);
+			}
+
+			for (int index = StartIndex; index <= EndIndex; index++)
 			{
 				Img = Gnd.i.md.ed.v.getImage(index);
 
@@ -85,7 +94,7 @@ namespace Charlotte
 				using (Graphics g = Graphics.FromImage(b))
 				{
 					g.FillRectangle(Brushes.Black, 0f, 0f, (float)b.Width, (float)b.Height);
-					g.DrawString(line, new Font("メイリオ", 300f, FontStyle.Regular), Brushes.White, 50f, 50f);
+					g.DrawString(line, new Font("メイリオ", 200f, FontStyle.Regular), Brushes.White, 50f, 50f);
 				}
 				bmp = Bmp.create(b);
 			}
@@ -121,17 +130,16 @@ namespace Charlotte
 					{
 						Bitmap be = bmpExte.getBitmap();
 
-						g.DrawImage(be, 10f, 10f);
-						g.DrawImage(be, 30f, 10f);
-						g.DrawImage(be, 50f, 10f);
-						g.DrawImage(be, 50f, 30f);
-						g.DrawImage(be, 50f, 50f);
-						g.DrawImage(be, 30f, 50f);
-						g.DrawImage(be, 10f, 50f);
-						g.DrawImage(be, 10f, 30f);
+						for (int c = 0; c < 40; c++)
+						{
+							g.DrawImage(be, 10 + c, 10);
+							g.DrawImage(be, 10 + c, 49);
+							g.DrawImage(be, 10, 10 + c);
+							g.DrawImage(be, 49, 10 + c);
+						}
 					}
 
-					g.DrawImage(bmp.getBitmap(), 30f, 30f);
+					g.DrawImage(bmp.getBitmap(), 30, 30);
 				}
 				bmp = Bmp.create(b);
 			}
@@ -147,11 +155,14 @@ namespace Charlotte
 					);
 			}
 
+			//bmp.getBitmap().Save(@"C:\temp\1.png", ImageFormat.Png); //test
 			bmp = bmp.addMargin(10, 10, 10, 10, dotBack);
+			//bmp.getBitmap().Save(@"C:\temp\2.png", ImageFormat.Png); //test
 			bmp = bmp.expand(
 				IntTools.toInt(bmp.table.w / 3.0),
 				IntTools.toInt(bmp.table.h / 3.0)
 				);
+			//bmp.getBitmap().Save(@"C:\temp\3.png", ImageFormat.Png); //test
 
 			{
 				Rect rect = bmp.getRect(dot => dot.IsSame(dotBack) == false);
@@ -168,7 +179,7 @@ namespace Charlotte
 				int w;
 				int h;
 
-				h = IntTools.toInt(Img_H * 0.1);
+				h = IntTools.toInt(Img_H * 0.08);
 				w = IntTools.toInt(h * bmp.table.w * 1.0 / bmp.table.h);
 
 				w = Math.Min(w, Img_W);

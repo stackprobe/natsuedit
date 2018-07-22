@@ -111,7 +111,6 @@
     <Compile Include="SettingDlg.Designer.cs">
       <DependentUpon>SettingDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Expand.cs" />
     <Compile Include="VideoSelectWin.cs">
       <SubType>Form</SubType>
     </Compile>

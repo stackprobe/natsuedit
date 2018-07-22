@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace Charlotte.Tools
 {
@@ -211,9 +212,19 @@ namespace Charlotte.Tools
 			return dest;
 		}
 
+		private static readonly Dot DotDummy = Bmp.Dot.getDot(Color.DarkCyan);
+
 		public Bmp expand(int w, int h)
 		{
-			return new Expand().Main(this, w, h);
+			using (Bitmap dest = new Bitmap(w, h))
+			using (Graphics g = Graphics.FromImage(dest))
+			using (Bitmap b = getBitmap())
+			{
+				g.InterpolationMode = InterpolationMode.HighQualityBicubic; // これでいいのか？
+				g.DrawImage(b, 0, 0, w, h);
+
+				return Bmp.create(dest);
+			}
 		}
 
 		public Bmp copy()

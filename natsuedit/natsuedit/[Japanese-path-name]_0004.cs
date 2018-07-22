@@ -45,7 +45,7 @@
 			this.Line1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.Line1.Location = new System.Drawing.Point(66, 12);
-			this.Line1.MaxLength = 50;
+			this.Line1.MaxLength = 40;
 			this.Line1.Name = "Line1";
 			this.Line1.Size = new System.Drawing.Size(371, 27);
 			this.Line1.TabIndex = 1;
@@ -86,7 +86,7 @@
 			this.Line2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.Line2.Location = new System.Drawing.Point(66, 45);
-			this.Line2.MaxLength = 50;
+			this.Line2.MaxLength = 40;
 			this.Line2.Name = "Line2";
 			this.Line2.Size = new System.Drawing.Size(371, 27);
 			this.Line2.TabIndex = 4;
