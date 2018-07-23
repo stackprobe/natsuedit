@@ -155,14 +155,11 @@ namespace Charlotte
 					);
 			}
 
-			//bmp.getBitmap().Save(@"C:\temp\1.png", ImageFormat.Png); //test
 			bmp = bmp.addMargin(10, 10, 10, 10, dotBack);
-			//bmp.getBitmap().Save(@"C:\temp\2.png", ImageFormat.Png); //test
 			bmp = bmp.expand(
 				IntTools.toInt(bmp.table.w / 3.0),
 				IntTools.toInt(bmp.table.h / 3.0)
 				);
-			//bmp.getBitmap().Save(@"C:\temp\3.png", ImageFormat.Png); //test
 
 			{
 				Rect rect = bmp.getRect(dot => dot.IsSame(dotBack) == false);

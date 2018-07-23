@@ -216,15 +216,67 @@ namespace Charlotte.Tools
 
 		public Bmp expand(int w, int h)
 		{
-			using (Bitmap dest = new Bitmap(w, h))
-			using (Graphics g = Graphics.FromImage(dest))
-			using (Bitmap b = getBitmap())
-			{
-				g.InterpolationMode = InterpolationMode.HighQualityBicubic; // これでいいのか？
-				g.DrawImage(b, 0, 0, w, h);
+			Bmp dest = new Bmp(w, h, DotDummy);
 
-				return Bmp.create(dest);
+			int PICK_PER_DOT = 10;
+
+			for (int x = 0; x < w; x++)
+			{
+				for (int y = 0; y < h; y++)
+				{
+					// Bmp.Dotの初期化が必要！
+					dest.table[x, y] = new Bmp.Dot(
+						DotDummy.a,
+						DotDummy.r,
+						DotDummy.g,
+						DotDummy.b
+						);
+
+					for (int color = 0; color < 4; color++)
+					{
+						long numer = 0;
+						long denom = 0;
+
+						for (int sX = 0; sX < PICK_PER_DOT; sX++)
+						{
+							for (int sY = 0; sY < PICK_PER_DOT; sY++)
+							{
+								double xx = x + sX * 1.0 / PICK_PER_DOT;
+								double yy = y + sY * 1.0 / PICK_PER_DOT;
+
+								xx *= table.w;
+								xx /= w;
+
+								yy *= table.h;
+								yy /= h;
+
+								int xxx = (int)xx;
+								int yyy = (int)yy;
+
+								int weight;
+
+								if (color == 0)
+									weight = 1;
+								else
+									weight = table[xxx, yyy].getLevel(0);
+
+								numer += weight * table[xxx, yyy].getLevel(color);
+								denom += weight;
+							}
+						}
+
+						int destLv;
+
+						if (denom == 0)
+							destLv = 0;
+						else
+							destLv = (int)(numer * 1.0 / denom + 0.5);
+
+						dest.table[x, y].setLevel(color, destLv);
+					}
+				}
 			}
+			return dest;
 		}
 
 		public Bmp copy()
