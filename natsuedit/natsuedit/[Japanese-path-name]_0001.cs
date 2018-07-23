@@ -189,12 +189,14 @@ namespace Charlotte
 
 		private void Put字幕(Bitmap j1, Consts.LineAlign_e align1, Bitmap j2, Consts.LineAlign_e align2)
 		{
+			int margin = (int)(Img_H * 0.01);
+
 			using (Graphics g = Graphics.FromImage(Img))
 			{
 				if (j1 != null)
 				{
 					int x = Img_W - j1.Width;
-					int y = Img_H - (j1.Height + j2.Height);
+					int y = Img_H - j1.Height - margin - j2.Height - margin;
 
 					switch (align1)
 					{
@@ -217,9 +219,9 @@ namespace Charlotte
 
 				{
 					int x = Img_W - j2.Width;
-					int y = Img_H - j2.Height;
+					int y = Img_H - j2.Height - margin;
 
-					switch (align1)
+					switch (align2)
 					{
 						case Consts.LineAlign_e.左寄せ:
 							x = 0;

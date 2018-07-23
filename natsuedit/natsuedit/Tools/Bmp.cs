@@ -224,7 +224,7 @@ namespace Charlotte.Tools
 			{
 				for (int y = 0; y < h; y++)
 				{
-					// Bmp.Dotの初期化が必要！
+					// DotDummyにsetLevelしてしまわないように、Bmp.Dotの初期化が必要！
 					dest.table[x, y] = new Bmp.Dot(
 						DotDummy.a,
 						DotDummy.r,
@@ -241,8 +241,8 @@ namespace Charlotte.Tools
 						{
 							for (int sY = 0; sY < PICK_PER_DOT; sY++)
 							{
-								double xx = x + sX * 1.0 / PICK_PER_DOT;
-								double yy = y + sY * 1.0 / PICK_PER_DOT;
+								double xx = x + (sX + 0.5) / PICK_PER_DOT;
+								double yy = y + (sY + 0.5) / PICK_PER_DOT;
 
 								xx *= table.w;
 								xx /= w;
