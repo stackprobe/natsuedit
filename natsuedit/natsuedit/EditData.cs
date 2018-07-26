@@ -78,5 +78,15 @@ namespace Charlotte
 				Gnd.i.progressMessage.post(""); // 完了
 			}
 		}
+
+		public SavedEditData quickSave()
+		{
+			return new SavedEditData(); // TODO
+		}
+
+		public void quickLoad(SavedEditData savedEditData)
+		{
+			// TODO
+		}
 	}
 }

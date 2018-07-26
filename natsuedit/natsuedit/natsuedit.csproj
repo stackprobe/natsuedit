@@ -105,6 +105,7 @@
     <Compile Include="PseudoMainWin.Designer.cs">
       <DependentUpon>PseudoMainWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SavedEditData.cs" />
     <Compile Include="SettingDlg.cs">
       <SubType>Form</SubType>
     </Compile>

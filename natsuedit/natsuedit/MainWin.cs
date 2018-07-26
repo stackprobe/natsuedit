@@ -1214,6 +1214,7 @@ namespace Charlotte
 						{
 							new Effect字幕入力().perform(f.Ret_Line1, f.Ret_Align1, f.Ret_Line2, f.Ret_Align2);
 						});
+
 						throw new Completed();
 					}
 				}
@@ -1225,6 +1226,64 @@ namespace Charlotte
 
 			refreshVideoFrame();
 			refreshStatus();
+
+			this.mtEnabled = true;
+		}
+
+		private void クイックセーブVToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			this.mtEnabled = false;
+
+			try
+			{
+				if (Gnd.i.md == null)
+					throw new Exception("ファイルを開いていないのでクイックセーブ出来ません。");
+
+				BusyDlg.perform(() =>
+				{
+					if (Gnd.i.sed != null)
+						Gnd.i.sed.Dispose();
+
+					Gnd.i.sed = Gnd.i.md.ed.quickSave();
+				});
+
+				throw new Completed();
+			}
+			catch (Exception ex)
+			{
+				FailedOperation.caught(ex);
+			}
+			this.mtEnabled = true;
+		}
+
+		private void クイックロードWToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.mtEnabled = false;
+
+			try
+			{
+				if (Gnd.i.sed == null)
+					throw new Exception("クイックセーブしていません。");
+
+				if (Gnd.i.md == null)
+					throw new Exception("ファイルを開いていないのでクイックロード出来ません。");
+
+				BusyDlg.perform(() =>
+				{
+					Gnd.i.md.ed.quickLoad(Gnd.i.sed);
+				});
+
+				throw new Completed();
+			}
+			catch (Exception ex)
+			{
+				FailedOperation.caught(ex);
+			}
+
+			// 全部リフレッシュする。
+			refreshVideo();
+			refreshStatus();
+			refreshEnable();
 
 			this.mtEnabled = true;
 		}

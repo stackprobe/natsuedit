@@ -73,6 +73,10 @@
 			this.btnPrev = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
 			this.mainTimer = new System.Windows.Forms.Timer(this.components);
+			this.クイックセーブVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.クイックセーブVToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.クイックロードWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
 			this.audioContextMenu.SuspendLayout();
 			this.videoContextMenu.SuspendLayout();
@@ -88,7 +92,7 @@
 			this.seekBar.ContextMenuStrip = this.audioContextMenu;
 			this.seekBar.Location = new System.Drawing.Point(114, 192);
 			this.seekBar.Name = "seekBar";
-			this.seekBar.Size = new System.Drawing.Size(358, 45);
+			this.seekBar.Size = new System.Drawing.Size(458, 45);
 			this.seekBar.TabIndex = 3;
 			this.seekBar.ValueChanged += new System.EventHandler(this.seekBar_ValueChanged);
 			// 
@@ -159,7 +163,7 @@
 			this.imgVideo.ContextMenuStrip = this.videoContextMenu;
 			this.imgVideo.Location = new System.Drawing.Point(12, 29);
 			this.imgVideo.Name = "imgVideo";
-			this.imgVideo.Size = new System.Drawing.Size(460, 157);
+			this.imgVideo.Size = new System.Drawing.Size(560, 157);
 			this.imgVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imgVideo.TabIndex = 1;
 			this.imgVideo.TabStop = false;
@@ -176,14 +180,14 @@
             this.lbl時間選択});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 240);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(484, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(584, 22);
 			this.statusStrip1.TabIndex = 4;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// lblStatus
 			// 
 			this.lblStatus.Name = "lblStatus";
-			this.lblStatus.Size = new System.Drawing.Size(407, 17);
+			this.lblStatus.Size = new System.Drawing.Size(507, 17);
 			this.lblStatus.Spring = true;
 			this.lblStatus.Text = "準備しています...";
 			this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,10 +211,11 @@
             this.画面選択SToolStripMenuItem,
             this.時間選択TToolStripMenuItem,
             this.エフェクトEToolStripMenuItem,
+            this.クイックセーブVToolStripMenuItem,
             this.ツールLToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(484, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(584, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -430,12 +435,41 @@
 			this.mainTimer.Enabled = true;
 			this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
 			// 
+			// クイックセーブVToolStripMenuItem
+			// 
+			this.クイックセーブVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.クイックセーブVToolStripMenuItem1,
+            this.toolStripMenuItem5,
+            this.クイックロードWToolStripMenuItem});
+			this.クイックセーブVToolStripMenuItem.Name = "クイックセーブVToolStripMenuItem";
+			this.クイックセーブVToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+			this.クイックセーブVToolStripMenuItem.Text = "クイックセーブ(&V)";
+			// 
+			// クイックセーブVToolStripMenuItem1
+			// 
+			this.クイックセーブVToolStripMenuItem1.Name = "クイックセーブVToolStripMenuItem1";
+			this.クイックセーブVToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+			this.クイックセーブVToolStripMenuItem1.Text = "クイックセーブ(&V)";
+			this.クイックセーブVToolStripMenuItem1.Click += new System.EventHandler(this.クイックセーブVToolStripMenuItem1_Click);
+			// 
+			// クイックロードWToolStripMenuItem
+			// 
+			this.クイックロードWToolStripMenuItem.Name = "クイックロードWToolStripMenuItem";
+			this.クイックロードWToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.クイックロードWToolStripMenuItem.Text = "クイックロード(&W)";
+			this.クイックロードWToolStripMenuItem.Click += new System.EventHandler(this.クイックロードWToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem5
+			// 
+			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
+			// 
 			// MainWin
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 262);
+			this.ClientSize = new System.Drawing.Size(584, 262);
 			this.Controls.Add(this.btnNext);
 			this.Controls.Add(this.btnPrev);
 			this.Controls.Add(this.imgVideo);
@@ -515,6 +549,10 @@
 		private System.Windows.Forms.ToolStripStatusLabel lbl画面選択;
 		private System.Windows.Forms.ToolStripStatusLabel lbl時間選択;
 		private System.Windows.Forms.ToolStripMenuItem 字幕を入れるToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem クイックセーブVToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem クイックセーブVToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+		private System.Windows.Forms.ToolStripMenuItem クイックロードWToolStripMenuItem;
 	}
 }
 
