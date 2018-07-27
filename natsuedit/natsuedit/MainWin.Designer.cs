@@ -67,16 +67,16 @@
 			this.ぼかし2KToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.枠外切り捨てToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.字幕を入れるToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.クイックセーブVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.クイックセーブVToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+			this.クイックロードWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ツールLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.設定SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ffmpegのパスを変更するFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnPrev = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
 			this.mainTimer = new System.Windows.Forms.Timer(this.components);
-			this.クイックセーブVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.クイックセーブVToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.クイックロードWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
 			this.audioContextMenu.SuspendLayout();
 			this.videoContextMenu.SuspendLayout();
@@ -211,8 +211,8 @@
             this.画面選択SToolStripMenuItem,
             this.時間選択TToolStripMenuItem,
             this.エフェクトEToolStripMenuItem,
-            this.クイックセーブVToolStripMenuItem,
-            this.ツールLToolStripMenuItem});
+            this.ツールLToolStripMenuItem,
+            this.クイックセーブVToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(584, 24);
@@ -385,6 +385,35 @@
 			this.字幕を入れるToolStripMenuItem.Text = "字幕を入れる　【時間選択】";
 			this.字幕を入れるToolStripMenuItem.Click += new System.EventHandler(this.字幕を入れるToolStripMenuItem_Click);
 			// 
+			// クイックセーブVToolStripMenuItem
+			// 
+			this.クイックセーブVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.クイックセーブVToolStripMenuItem1,
+            this.toolStripMenuItem5,
+            this.クイックロードWToolStripMenuItem});
+			this.クイックセーブVToolStripMenuItem.Name = "クイックセーブVToolStripMenuItem";
+			this.クイックセーブVToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+			this.クイックセーブVToolStripMenuItem.Text = "クイックセーブ(&V)";
+			// 
+			// クイックセーブVToolStripMenuItem1
+			// 
+			this.クイックセーブVToolStripMenuItem1.Name = "クイックセーブVToolStripMenuItem1";
+			this.クイックセーブVToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+			this.クイックセーブVToolStripMenuItem1.Text = "クイックセーブ(&V)";
+			this.クイックセーブVToolStripMenuItem1.Click += new System.EventHandler(this.クイックセーブVToolStripMenuItem1_Click);
+			// 
+			// toolStripMenuItem5
+			// 
+			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
+			// 
+			// クイックロードWToolStripMenuItem
+			// 
+			this.クイックロードWToolStripMenuItem.Name = "クイックロードWToolStripMenuItem";
+			this.クイックロードWToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.クイックロードWToolStripMenuItem.Text = "クイックロード(&W)";
+			this.クイックロードWToolStripMenuItem.Click += new System.EventHandler(this.クイックロードWToolStripMenuItem_Click);
+			// 
 			// ツールLToolStripMenuItem
 			// 
 			this.ツールLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -434,35 +463,6 @@
 			// 
 			this.mainTimer.Enabled = true;
 			this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
-			// 
-			// クイックセーブVToolStripMenuItem
-			// 
-			this.クイックセーブVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.クイックセーブVToolStripMenuItem1,
-            this.toolStripMenuItem5,
-            this.クイックロードWToolStripMenuItem});
-			this.クイックセーブVToolStripMenuItem.Name = "クイックセーブVToolStripMenuItem";
-			this.クイックセーブVToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-			this.クイックセーブVToolStripMenuItem.Text = "クイックセーブ(&V)";
-			// 
-			// クイックセーブVToolStripMenuItem1
-			// 
-			this.クイックセーブVToolStripMenuItem1.Name = "クイックセーブVToolStripMenuItem1";
-			this.クイックセーブVToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
-			this.クイックセーブVToolStripMenuItem1.Text = "クイックセーブ(&V)";
-			this.クイックセーブVToolStripMenuItem1.Click += new System.EventHandler(this.クイックセーブVToolStripMenuItem1_Click);
-			// 
-			// クイックロードWToolStripMenuItem
-			// 
-			this.クイックロードWToolStripMenuItem.Name = "クイックロードWToolStripMenuItem";
-			this.クイックロードWToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-			this.クイックロードWToolStripMenuItem.Text = "クイックロード(&W)";
-			this.クイックロードWToolStripMenuItem.Click += new System.EventHandler(this.クイックロードWToolStripMenuItem_Click);
-			// 
-			// toolStripMenuItem5
-			// 
-			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
 			// 
 			// MainWin
 			// 

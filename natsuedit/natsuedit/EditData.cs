@@ -79,14 +79,20 @@ namespace Charlotte
 			}
 		}
 
-		public SavedEditData quickSave()
+		public void quickSave(MediaSavedData dest)
 		{
-			return new SavedEditData(); // TODO
+			a.quickSave(dest);
+			v.quickSave(dest);
+
+			dest.addString(_lastSavedFile);
 		}
 
-		public void quickLoad(SavedEditData savedEditData)
+		public void quickLoad(MediaSavedData src)
 		{
-			// TODO
+			a.quickLoad(src);
+			v.quickLoad(src);
+
+			_lastSavedFile = src.readString();
 		}
 	}
 }

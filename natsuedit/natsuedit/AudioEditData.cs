@@ -55,5 +55,20 @@ namespace Charlotte
 		{
 			return selectEnd != -1;
 		}
+
+		public void quickSave(MediaSavedData dest)
+		{
+			dest.addByFile(_ed.md.getWavCsvFile());
+		}
+
+		public void quickLoad(MediaSavedData src)
+		{
+			src.readByFile(_ed.md.getWavCsvFile());
+
+			// 念のためのreset
+			{
+				clearSelection();
+			}
+		}
 	}
 }

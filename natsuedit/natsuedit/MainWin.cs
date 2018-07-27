@@ -1237,14 +1237,14 @@ namespace Charlotte
 			try
 			{
 				if (Gnd.i.md == null)
-					throw new Exception("ファイルを開いていないのでクイックセーブ出来ません。");
+					throw new FailedOperation("ファイルを開いていないのでクイックセーブ出来ません。");
 
 				BusyDlg.perform(() =>
 				{
-					if (Gnd.i.sed != null)
-						Gnd.i.sed.Dispose();
+					if (Gnd.i.msd != null)
+						Gnd.i.msd.Dispose();
 
-					Gnd.i.sed = Gnd.i.md.ed.quickSave();
+					Gnd.i.msd = Gnd.i.md.quickSave();
 				});
 
 				throw new Completed();
@@ -1262,15 +1262,15 @@ namespace Charlotte
 
 			try
 			{
-				if (Gnd.i.sed == null)
-					throw new Exception("クイックセーブしていません。");
+				if (Gnd.i.msd == null)
+					throw new FailedOperation("クイックセーブしていません。");
 
 				if (Gnd.i.md == null)
-					throw new Exception("ファイルを開いていないのでクイックロード出来ません。");
+					throw new FailedOperation("ファイルを開いていないのでクイックロード出来ません。");
 
 				BusyDlg.perform(() =>
 				{
-					Gnd.i.md.ed.quickLoad(Gnd.i.sed);
+					Gnd.i.md.quickLoad(Gnd.i.msd);
 				});
 
 				throw new Completed();
@@ -1281,9 +1281,11 @@ namespace Charlotte
 			}
 
 			// 全部リフレッシュする。
-			refreshVideo();
-			refreshStatus();
-			refreshEnable();
+			{
+				refreshVideo();
+				refreshStatus();
+				refreshEnable();
+			}
 
 			this.mtEnabled = true;
 		}

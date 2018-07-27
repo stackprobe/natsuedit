@@ -37,7 +37,7 @@ namespace Charlotte
 					if (Gnd.i.rFileSizeWarning_MB * 1000000L < fileSize)
 					{
 						if (BusyDlg.self == null)
-							throw null;
+							throw null; // never
 
 						Gnd.i.mediaDataSync.waitForMillis(0); // clear
 						Gnd.i.mediaDataCancelled = false;
@@ -90,6 +90,16 @@ namespace Charlotte
 		public class AudioStream
 		{
 			public int mapIndex;
+
+			public void quickSave(MediaSavedData dest)
+			{
+				dest.addInt(mapIndex);
+			}
+
+			public void quickLoad(MediaSavedData src)
+			{
+				mapIndex = src.readInt();
+			}
 		}
 
 		public class VideoStream
@@ -98,6 +108,22 @@ namespace Charlotte
 			public int fps;
 			public int w;
 			public int h;
+
+			public void quickSave(MediaSavedData dest)
+			{
+				dest.addInt(mapIndex);
+				dest.addInt(fps);
+				dest.addInt(w);
+				dest.addInt(h);
+			}
+
+			public void quickLoad(MediaSavedData src)
+			{
+				mapIndex = src.readInt();
+				fps = src.readInt();
+				w = src.readInt();
+				h = src.readInt();
+			}
 		}
 
 		private List<AudioStream> _audioStreams = new List<AudioStream>();
@@ -311,6 +337,36 @@ namespace Charlotte
 		public string getExt()
 		{
 			return _ext;
+		}
+
+		public MediaSavedData quickSave()
+		{
+			MediaSavedData dest = new MediaSavedData();
+
+			_targetAudioStream.quickSave(dest);
+			_targetVideoStream.quickSave(dest);
+			ed.quickSave(dest);
+
+			dest.addString(_origFile);
+			dest.addString(_ext);
+			dest.addString(_duplFile);
+			dest.addInt(_wavHz);
+
+			return dest;
+		}
+
+		public void quickLoad(MediaSavedData src)
+		{
+			src.readSeekSet();
+
+			_targetAudioStream.quickLoad(src);
+			_targetVideoStream.quickLoad(src);
+			ed.quickLoad(src);
+
+			_origFile = src.readString();
+			_ext = src.readString();
+			_duplFile = src.readString();
+			_wavHz = src.readInt();
 		}
 
 		public void Dispose()

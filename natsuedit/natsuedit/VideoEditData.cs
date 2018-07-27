@@ -87,5 +87,41 @@ namespace Charlotte
 
 			return rect;
 		}
+
+		public void quickSave(MediaSavedData dest)
+		{
+			int count = getCount();
+
+			dest.addInt(count);
+
+			for (int index = 0; index < count; index++)
+			{
+				dest.addByFile(getFile(index));
+			}
+		}
+
+		public void quickLoad(MediaSavedData src)
+		{
+			int count = src.readInt();
+
+			{
+				int currCount = getCount();
+
+				for (int index = count; index < currCount; index++)
+				{
+					File.Delete(getFile(index));
+				}
+			}
+
+			for (int index = 0; index < count; index++)
+			{
+				src.readByFile(getFile(index));
+			}
+
+			// 念のためのreset
+			{
+				clearSelection();
+			}
+		}
 	}
 }
