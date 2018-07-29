@@ -67,13 +67,13 @@
 			this.ぼかし2KToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.枠外切り捨てToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.字幕を入れるToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.クイックセーブVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.クイックセーブVToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-			this.クイックロードWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ツールLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.設定SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ffmpegのパスを変更するFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.クイックセーブVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quickSaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+			this.quickLoadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnPrev = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
 			this.mainTimer = new System.Windows.Forms.Timer(this.components);
@@ -211,8 +211,8 @@
             this.画面選択SToolStripMenuItem,
             this.時間選択TToolStripMenuItem,
             this.エフェクトEToolStripMenuItem,
-            this.ツールLToolStripMenuItem,
-            this.クイックセーブVToolStripMenuItem});
+            this.クイックセーブVToolStripMenuItem,
+            this.ツールLToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(584, 24);
@@ -292,26 +292,26 @@
 			// 画面選択クリアCToolStripMenuItem
 			// 
 			this.画面選択クリアCToolStripMenuItem.Name = "画面選択クリアCToolStripMenuItem";
-			this.画面選択クリアCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.画面選択クリアCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.画面選択クリアCToolStripMenuItem.Text = "選択クリア(&C)";
 			this.画面選択クリアCToolStripMenuItem.Click += new System.EventHandler(this.画面選択クリアCToolStripMenuItem_Click);
 			// 
 			// 画面選択全選択AToolStripMenuItem
 			// 
 			this.画面選択全選択AToolStripMenuItem.Name = "画面選択全選択AToolStripMenuItem";
-			this.画面選択全選択AToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.画面選択全選択AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.画面選択全選択AToolStripMenuItem.Text = "全選択(&A)";
 			this.画面選択全選択AToolStripMenuItem.Click += new System.EventHandler(this.画面選択全選択AToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(136, 6);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
 			// 
 			// 画面選択数値入力IToolStripMenuItem
 			// 
 			this.画面選択数値入力IToolStripMenuItem.Name = "画面選択数値入力IToolStripMenuItem";
-			this.画面選択数値入力IToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.画面選択数値入力IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.画面選択数値入力IToolStripMenuItem.Text = "数値入力(&I)";
 			this.画面選択数値入力IToolStripMenuItem.Click += new System.EventHandler(this.画面選択数値入力IToolStripMenuItem_Click);
 			// 
@@ -327,14 +327,14 @@
 			// 時間選択クリアCToolStripMenuItem
 			// 
 			this.時間選択クリアCToolStripMenuItem.Name = "時間選択クリアCToolStripMenuItem";
-			this.時間選択クリアCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.時間選択クリアCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.時間選択クリアCToolStripMenuItem.Text = "選択クリア(&C)";
 			this.時間選択クリアCToolStripMenuItem.Click += new System.EventHandler(this.時間選択クリアCToolStripMenuItem_Click);
 			// 
 			// 時間選択全選択AToolStripMenuItem
 			// 
 			this.時間選択全選択AToolStripMenuItem.Name = "時間選択全選択AToolStripMenuItem";
-			this.時間選択全選択AToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.時間選択全選択AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.時間選択全選択AToolStripMenuItem.Text = "全選択(&A)";
 			this.時間選択全選択AToolStripMenuItem.Click += new System.EventHandler(this.時間選択全選択AToolStripMenuItem_Click);
 			// 
@@ -385,35 +385,6 @@
 			this.字幕を入れるToolStripMenuItem.Text = "字幕を入れる　【時間選択】";
 			this.字幕を入れるToolStripMenuItem.Click += new System.EventHandler(this.字幕を入れるToolStripMenuItem_Click);
 			// 
-			// クイックセーブVToolStripMenuItem
-			// 
-			this.クイックセーブVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.クイックセーブVToolStripMenuItem1,
-            this.toolStripMenuItem5,
-            this.クイックロードWToolStripMenuItem});
-			this.クイックセーブVToolStripMenuItem.Name = "クイックセーブVToolStripMenuItem";
-			this.クイックセーブVToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-			this.クイックセーブVToolStripMenuItem.Text = "クイックセーブ(&V)";
-			// 
-			// クイックセーブVToolStripMenuItem1
-			// 
-			this.クイックセーブVToolStripMenuItem1.Name = "クイックセーブVToolStripMenuItem1";
-			this.クイックセーブVToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
-			this.クイックセーブVToolStripMenuItem1.Text = "クイックセーブ(&V)";
-			this.クイックセーブVToolStripMenuItem1.Click += new System.EventHandler(this.クイックセーブVToolStripMenuItem1_Click);
-			// 
-			// toolStripMenuItem5
-			// 
-			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
-			// 
-			// クイックロードWToolStripMenuItem
-			// 
-			this.クイックロードWToolStripMenuItem.Name = "クイックロードWToolStripMenuItem";
-			this.クイックロードWToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-			this.クイックロードWToolStripMenuItem.Text = "クイックロード(&W)";
-			this.クイックロードWToolStripMenuItem.Click += new System.EventHandler(this.クイックロードWToolStripMenuItem_Click);
-			// 
 			// ツールLToolStripMenuItem
 			// 
 			this.ツールLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -436,6 +407,35 @@
 			this.ffmpegのパスを変更するFToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
 			this.ffmpegのパスを変更するFToolStripMenuItem.Text = "ffmpegのパスを変更する(&F)";
 			this.ffmpegのパスを変更するFToolStripMenuItem.Click += new System.EventHandler(this.ffmpegのパスを変更するFToolStripMenuItem_Click);
+			// 
+			// クイックセーブVToolStripMenuItem
+			// 
+			this.クイックセーブVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quickSaveMenuItem,
+            this.toolStripMenuItem5,
+            this.quickLoadMenuItem});
+			this.クイックセーブVToolStripMenuItem.Name = "クイックセーブVToolStripMenuItem";
+			this.クイックセーブVToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+			this.クイックセーブVToolStripMenuItem.Text = "クイックセーブ(&V)";
+			// 
+			// quickSaveMenuItem
+			// 
+			this.quickSaveMenuItem.Name = "quickSaveMenuItem";
+			this.quickSaveMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.quickSaveMenuItem.Text = "クイックセーブ(&V)";
+			this.quickSaveMenuItem.Click += new System.EventHandler(this.quickSaveMenuItem_Click);
+			// 
+			// toolStripMenuItem5
+			// 
+			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
+			// 
+			// quickLoadMenuItem
+			// 
+			this.quickLoadMenuItem.Name = "quickLoadMenuItem";
+			this.quickLoadMenuItem.Size = new System.Drawing.Size(153, 22);
+			this.quickLoadMenuItem.Text = "クイックロード(&W)";
+			this.quickLoadMenuItem.Click += new System.EventHandler(this.quickLoadMenuItem_Click);
 			// 
 			// btnPrev
 			// 
@@ -550,9 +550,9 @@
 		private System.Windows.Forms.ToolStripStatusLabel lbl時間選択;
 		private System.Windows.Forms.ToolStripMenuItem 字幕を入れるToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem クイックセーブVToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem クイックセーブVToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem quickSaveMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-		private System.Windows.Forms.ToolStripMenuItem クイックロードWToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem quickLoadMenuItem;
 	}
 }
 

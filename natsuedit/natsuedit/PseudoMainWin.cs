@@ -127,10 +127,10 @@ namespace Charlotte
 						Gnd.i.md.Dispose();
 						Gnd.i.md = null;
 					}
-					if (Gnd.i.msd != null)
+					if (Gnd.i.qsd != null)
 					{
-						Gnd.i.msd.Dispose();
-						Gnd.i.msd = null;
+						Gnd.i.qsd.Dispose();
+						Gnd.i.qsd = null;
 					}
 					if (FFmpegBin.i != null)
 					{

@@ -144,6 +144,6 @@ namespace Charlotte
 		public bool cancelled = false;
 		public NamedEventPair mediaDataSync = new NamedEventPair();
 		public bool mediaDataCancelled;
-		public MediaSavedData msd = null; // null == 未クイックセーブ
+		public MediaSavedData qsd = null; // null == 未クイックセーブ
 	}
 }

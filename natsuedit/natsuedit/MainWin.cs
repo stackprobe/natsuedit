@@ -981,6 +981,7 @@ namespace Charlotte
 			bool videoSelected = movieLoaded && Gnd.i.md.ed.v.selectRect != null;
 			bool timeSelecting = movieLoaded && Gnd.i.md.ed.a.isSelecting();
 			bool timeSelected = movieLoaded && Gnd.i.md.ed.a.isSelected();
+			bool quickSaved = Gnd.i.qsd != null;
 
 			//this.アプリAToolStripMenuItem.Enabled = true;
 			//this.ファイルを開くOToolStripMenuItem.Enabled = true;
@@ -1032,6 +1033,10 @@ namespace Charlotte
 				this.lbl時間選択.BackColor = Gnd.i.selectColor;
 			else
 				this.lbl時間選択.BackColor = _commonLabelBackColor;
+
+			this.クイックセーブVToolStripMenuItem.Enabled = movieLoaded;
+			this.quickSaveMenuItem.Enabled = movieLoaded;
+			this.quickLoadMenuItem.Enabled = movieLoaded && quickSaved;
 		}
 
 		private void 切り捨てるCToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1230,7 +1235,7 @@ namespace Charlotte
 			this.mtEnabled = true;
 		}
 
-		private void クイックセーブVToolStripMenuItem1_Click(object sender, EventArgs e)
+		private void quickSaveMenuItem_Click(object sender, EventArgs e)
 		{
 			this.mtEnabled = false;
 
@@ -1241,10 +1246,10 @@ namespace Charlotte
 
 				BusyDlg.perform(() =>
 				{
-					if (Gnd.i.msd != null)
-						Gnd.i.msd.Dispose();
+					if (Gnd.i.qsd != null)
+						Gnd.i.qsd.Dispose();
 
-					Gnd.i.msd = Gnd.i.md.quickSave();
+					Gnd.i.qsd = Gnd.i.md.quickSave();
 				});
 
 				throw new Completed();
@@ -1253,16 +1258,19 @@ namespace Charlotte
 			{
 				FailedOperation.caught(ex);
 			}
+
+			refreshEnable();
+
 			this.mtEnabled = true;
 		}
 
-		private void クイックロードWToolStripMenuItem_Click(object sender, EventArgs e)
+		private void quickLoadMenuItem_Click(object sender, EventArgs e)
 		{
 			this.mtEnabled = false;
 
 			try
 			{
-				if (Gnd.i.msd == null)
+				if (Gnd.i.qsd == null)
 					throw new FailedOperation("クイックセーブしていません。");
 
 				if (Gnd.i.md == null)
@@ -1270,7 +1278,7 @@ namespace Charlotte
 
 				BusyDlg.perform(() =>
 				{
-					Gnd.i.md.quickLoad(Gnd.i.msd);
+					Gnd.i.md.quickLoad(Gnd.i.qsd);
 				});
 
 				throw new Completed();
