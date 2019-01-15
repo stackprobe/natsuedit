@@ -132,6 +132,11 @@ namespace Charlotte
 			return Path.Combine(Program.selfDir, Path.GetFileNameWithoutExtension(Program.selfFile) + ".dat");
 		}
 
+		public bool is初回起動()
+		{
+			return File.Exists(getDataFile()) == false; // ? saveData()未実行
+		}
+
 		// ----
 
 		public Logger logger = new Logger();

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Charlotte.Tools;
-using System.Windows.Forms;
+using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
+using Charlotte.Tools;
 
 namespace Charlotte
 {
@@ -136,6 +137,47 @@ namespace Charlotte
 				IntTools.toInt(rect.w),
 				IntTools.toInt(rect.h)
 				);
+		}
+
+		public static void AntiWindowsDefenderSmartScreen()
+		{
+			WriteLog("awdss_1");
+
+			if (Gnd.i.is初回起動())
+			{
+				WriteLog("awdss_2");
+
+				foreach (string exeFile in Directory.GetFiles(Program.selfDir, "*.exe", SearchOption.TopDirectoryOnly))
+				{
+					try
+					{
+						WriteLog("awdss_exeFile: " + exeFile);
+
+						if (exeFile.ToLower() == Program.selfFile.ToLower())
+						{
+							WriteLog("awdss_self_noop");
+						}
+						else
+						{
+							byte[] exeData = File.ReadAllBytes(exeFile);
+							File.Delete(exeFile);
+							File.WriteAllBytes(exeFile, exeData);
+						}
+						WriteLog("awdss_OK");
+					}
+					catch (Exception e)
+					{
+						WriteLog(e);
+					}
+				}
+				WriteLog("awdss_3");
+			}
+			WriteLog("awdss_4");
+		}
+
+		public static void WriteLog(object message)
+		{
+			Gnd.i.logger.writeLine("" + message);
 		}
 	}
 }

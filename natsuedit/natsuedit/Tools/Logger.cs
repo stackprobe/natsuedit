@@ -47,22 +47,15 @@ namespace Charlotte.Tools
 				catch
 				{ }
 
-				for (int c = 0; c < 20; c++)
+				try
 				{
-					if (0 < c)
-						Thread.Sleep(100);
-
-					try
+					using (StreamWriter writer = new StreamWriter(_file, true, Encoding.UTF8))
 					{
-						using (StreamWriter writer = new StreamWriter(_file, true, Encoding.UTF8))
-						{
-							writeLine(writer, line);
-						}
-						break;
+						writeLine(writer, line);
 					}
-					catch
-					{ }
 				}
+				catch
+				{ }
 			}
 		}
 
