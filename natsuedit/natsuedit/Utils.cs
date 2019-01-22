@@ -139,6 +139,8 @@ namespace Charlotte
 				);
 		}
 
+		// sync > @ AntiWindowsDefenderSmartScreen
+
 		public static void AntiWindowsDefenderSmartScreen()
 		{
 			WriteLog("awdss_1");
@@ -174,6 +176,8 @@ namespace Charlotte
 			}
 			WriteLog("awdss_4");
 		}
+
+		// < sync
 
 		public static void WriteLog(object message)
 		{
