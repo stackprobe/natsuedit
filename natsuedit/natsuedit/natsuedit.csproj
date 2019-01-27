@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioEditData.cs" />
+    <Compile Include="BootTools.cs" />
     <Compile Include="ColorSettingDlg.cs">
       <SubType>Form</SubType>
     </Compile>

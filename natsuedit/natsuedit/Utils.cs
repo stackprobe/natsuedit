@@ -145,17 +145,17 @@ namespace Charlotte
 		{
 			WriteLog("awdss_1");
 
-			if (Gnd.i.is初回起動())
+			if (Is初回起動())
 			{
 				WriteLog("awdss_2");
 
-				foreach (string exeFile in Directory.GetFiles(Program.selfDir, "*.exe", SearchOption.TopDirectoryOnly))
+				foreach (string exeFile in Directory.GetFiles(BootTools.SelfDir, "*.exe", SearchOption.TopDirectoryOnly))
 				{
 					try
 					{
 						WriteLog("awdss_exeFile: " + exeFile);
 
-						if (exeFile.ToLower() == Program.selfFile.ToLower())
+						if (exeFile.ToLower() == BootTools.SelfFile.ToLower())
 						{
 							WriteLog("awdss_self_noop");
 						}
@@ -178,6 +178,11 @@ namespace Charlotte
 		}
 
 		// < sync
+
+		public static bool Is初回起動()
+		{
+			return Gnd.i.is初回起動();
+		}
 
 		public static void WriteLog(object message)
 		{
