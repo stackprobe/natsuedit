@@ -107,6 +107,7 @@
       <DependentUpon>PseudoMainWin.cs</DependentUpon>
     </Compile>
     <Compile Include="MediaSavedData.cs" />
+    <Compile Include="SaveLoadDialogs.cs" />
     <Compile Include="SettingDlg.cs">
       <SubType>Form</SubType>
     </Compile>

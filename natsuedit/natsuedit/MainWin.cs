@@ -408,45 +408,17 @@ namespace Charlotte
 				confirmSaveFile(false, true, false);
 
 				string presetFile = Gnd.i.lastOpenedFile;
-				string selectedFile = null;
 
-				//OpenFileDialogクラスのインスタンスを作成
-				using (OpenFileDialog ofd = new OpenFileDialog())
-				{
-					//はじめのファイル名を指定する
-					//はじめに「ファイル名」で表示される文字列を指定する
-					ofd.FileName = Path.GetFileName(presetFile);
-					//はじめに表示されるフォルダを指定する
-					//指定しない（空の文字列）の時は、現在のディレクトリが表示される
-					ofd.InitialDirectory = Path.GetDirectoryName(presetFile);
-					//[ファイルの種類]に表示される選択肢を指定する
-					//指定しないとすべてのファイルが表示される
-					//ofd.Filter = "HTMLファイル(*.html;*.htm)|*.html;*.htm|すべてのファイル(*.*)|*.*";
-					ofd.Filter = Gnd.i.movieExtensions.getFilter();
-					//[ファイルの種類]ではじめに選択されるものを指定する
-					//2番目の「すべてのファイル」が選択されているようにする
-					//ofd.FilterIndex = 2;
-					ofd.FilterIndex = Gnd.i.movieExtensions.indexOf(".mp4") + 1;
-					//タイトルを設定する
-					ofd.Title = "動画ファイルを選択してください";
-					//ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
-					ofd.RestoreDirectory = true;
-					//存在しないファイルの名前が指定されたとき警告を表示する
-					//デフォルトでTrueなので指定する必要はない
-					ofd.CheckFileExists = true;
-					//存在しないパスが指定されたとき警告を表示する
-					//デフォルトでTrueなので指定する必要はない
-					ofd.CheckPathExists = true;
-
-					//ダイアログを表示する
-					if (ofd.ShowDialog() == DialogResult.OK)
+				string selectedFile = selectedFile = SaveLoadDialogs.LoadFile(
+					"動画ファイルを選択してください",
+					"",
+					Path.GetDirectoryName(presetFile),
+					Path.GetFileName(presetFile),
+					dlg =>
 					{
-						//OKボタンがクリックされたとき、選択されたファイル名を表示する
-						//Console.WriteLine(ofd.FileName);
-
-						selectedFile = ofd.FileName;
-					}
-				}
+						dlg.Filter = Gnd.i.movieExtensions.getFilter();
+						dlg.FilterIndex = Gnd.i.movieExtensions.indexOf(".mp4") + 1;
+					});
 
 				if (selectedFile != null)
 				{
@@ -633,43 +605,17 @@ namespace Charlotte
 
 				string presetFile = Gnd.i.md.ed.getLastSavedFile();
 				//string presetFile = Gnd.i.md.getOriginalFile(); // old
-				string selectedFile = null;
 
-				//SaveFileDialogクラスのインスタンスを作成
-				using (SaveFileDialog sfd = new SaveFileDialog())
-				{
-					//はじめのファイル名を指定する
-					//はじめに「ファイル名」で表示される文字列を指定する
-					sfd.FileName = Path.GetFileName(presetFile);
-					//はじめに表示されるフォルダを指定する
-					sfd.InitialDirectory = Path.GetDirectoryName(presetFile);
-					//[ファイルの種類]に表示される選択肢を指定する
-					//指定しない（空の文字列）の時は、現在のディレクトリが表示される
-					sfd.Filter = Gnd.i.movieExtensions.getFilter();
-					//[ファイルの種類]ではじめに選択されるものを指定する
-					//2番目の「すべてのファイル」が選択されているようにする
-					//sfd.FilterIndex = 2;
-					sfd.FilterIndex = Gnd.i.movieExtensions.indexOf(".mp4") + 1;
-					//タイトルを設定する
-					sfd.Title = "保存先のファイルを選択してください";
-					//ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
-					sfd.RestoreDirectory = true;
-					//既に存在するファイル名を指定したとき警告する
-					//デフォルトでTrueなので指定する必要はない
-					sfd.OverwritePrompt = true;
-					//存在しないパスが指定されたとき警告を表示する
-					//デフォルトでTrueなので指定する必要はない
-					sfd.CheckPathExists = true;
-
-					//ダイアログを表示する
-					if (sfd.ShowDialog() == DialogResult.OK)
+				string selectedFile = SaveLoadDialogs.SaveFile(
+					"保存先のファイルを選択してください",
+					"",
+					Path.GetDirectoryName(presetFile),
+					Path.GetFileName(presetFile),
+					dlg =>
 					{
-						//OKボタンがクリックされたとき、選択されたファイル名を表示する
-						//Console.WriteLine(sfd.FileName);
-
-						selectedFile = sfd.FileName;
-					}
-				}
+						dlg.Filter = Gnd.i.movieExtensions.getFilter();
+						dlg.FilterIndex = Gnd.i.movieExtensions.indexOf(".mp4") + 1;
+					});
 
 				if (selectedFile != null)
 				{
