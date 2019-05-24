@@ -4,6 +4,7 @@ COPY /B natsuedit\natsuedit\bin\Release\natsuedit.exe out
 COPY /B Tools\CTools.exe out
 
 C:\Factory\Tools\xcp.exe doc out
+ren out\Readme.txt ƒ}ƒjƒ…ƒAƒ‹.txt
 
 C:\Factory\SubTools\EmbedConfig.exe --factory-dir-disabled out\CTools.exe
 
