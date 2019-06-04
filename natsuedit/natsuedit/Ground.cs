@@ -71,6 +71,8 @@ namespace Charlotte
 		public Color selectColor = Color.FromArgb(128, 0, 0, 255);
 		public bool _ファイルを閉じるとき保存するか確認しない = false;
 		public bool _起動時にffmpegのパスを設定する = false;
+		public bool _映像をJPEGで保存する = false;
+		public int _映像をJPEGで保存する時の画質 = 90; // 0 ～ 100 == 低画質 ～ 高画質
 
 		public void loadData()
 		{
@@ -92,6 +94,8 @@ namespace Charlotte
 				selectColor = IntTools.toColor(int.Parse(lines[c++]));
 				_ファイルを閉じるとき保存するか確認しない = StringTools.toFlag(lines[c++]);
 				_起動時にffmpegのパスを設定する = StringTools.toFlag(lines[c++]);
+				_映像をJPEGで保存する = StringTools.toFlag(lines[c++]);
+				_映像をJPEGで保存する時の画質 = int.Parse(lines[c++]);
 
 				// < items
 			}
@@ -118,6 +122,8 @@ namespace Charlotte
 				lines.Add("" + IntTools.toInt(selectColor));
 				lines.Add(StringTools.toString(_ファイルを閉じるとき保存するか確認しない));
 				lines.Add(StringTools.toString(_起動時にffmpegのパスを設定する));
+				lines.Add(StringTools.toString(_映像をJPEGで保存する));
+				lines.Add("" + _映像をJPEGで保存する時の画質);
 
 				// < items
 

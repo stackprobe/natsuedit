@@ -31,6 +31,8 @@ namespace Charlotte
 		public static readonly ImageFormat V_IMG_FORMAT = ImageFormat.Bmp;
 #endif
 
+		public const string V_IMG_JPEG_EXT = ".jpeg";
+
 		public enum LineAlign_e
 		{
 			左寄せ,

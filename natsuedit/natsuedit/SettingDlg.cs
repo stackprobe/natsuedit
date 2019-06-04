@@ -24,6 +24,9 @@ namespace Charlotte
 				_selectColor = Gnd.i.selectColor;
 
 				this.cbファイルを閉じるとき保存するか確認しない.Checked = Gnd.i._ファイルを閉じるとき保存するか確認しない;
+				this.cb映像をJPEGで保存する.Checked = Gnd.i._映像をJPEGで保存する;
+
+				this.JPEGの画質.Text = "" + Gnd.i._映像をJPEGで保存する時の画質;
 			}
 		}
 
@@ -51,6 +54,13 @@ namespace Charlotte
 		{
 			this.lblSelectingColor.Text = "選択中の色 : " + Utils.toUIString(_selectingColor);
 			this.lblSelectColor.Text = "選択された矩形の色 : " + Utils.toUIString(_selectColor);
+
+			{
+				bool f = this.cb映像をJPEGで保存する.Checked;
+
+				this.lblJPEGの画質.Enabled = f;
+				this.JPEGの画質.Enabled = f;
+			}
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)
@@ -66,7 +76,21 @@ namespace Charlotte
 				Gnd.i.selectColor = _selectColor;
 
 				Gnd.i._ファイルを閉じるとき保存するか確認しない = this.cbファイルを閉じるとき保存するか確認しない.Checked;
+				Gnd.i._映像をJPEGで保存する = this.cb映像をJPEGで保存する.Checked;
+
+				try
+				{
+					int value = (int)this.JPEGの画質.Value;
+
+					if (value < 0 || 100 < value)
+						throw null;
+
+					Gnd.i._映像をJPEGで保存する時の画質 = value;
+				}
+				catch
+				{ }
 			}
+
 			this.Close();
 		}
 
@@ -92,6 +116,11 @@ namespace Charlotte
 					color = f.retColor;
 			}
 			return color;
+		}
+
+		private void cb映像をJPEGで保存する_CheckedChanged(object sender, EventArgs e)
+		{
+			refreshUI();
 		}
 	}
 }
