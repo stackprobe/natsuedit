@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Charlotte
 {
-	public class CTools
+	public static class CTools
 	{
 		private static string cToolsFile
 		{

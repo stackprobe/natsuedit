@@ -9,7 +9,7 @@ using Charlotte.Tools;
 
 namespace Charlotte
 {
-	public class Utils
+	public static class Utils
 	{
 		public static int getIndexDigitFormat(string[] lines, string format)
 		{

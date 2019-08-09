@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Charlotte
 {
-	public class FFmpegBinTester
+	public static class FFmpegBinTester
 	{
 		public static void doTest()
 		{

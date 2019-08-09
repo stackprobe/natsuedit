@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 
 namespace Charlotte
 {
-	public class Consts
+	public static class Consts
 	{
 		public const int _起動や初期化が確実に終わったと言えるであろうmtCount = 2;
 
