@@ -10,4 +10,4 @@ C:\Factory\SubTools\EmbedConfig.exe --factory-dir-disabled out\CTools.exe
 
 C:\Factory\SubTools\zip.exe /O out natsuedit
 
-PAUSE
+IF NOT "%1" == "/-P" PAUSE
