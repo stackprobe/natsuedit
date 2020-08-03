@@ -118,7 +118,7 @@ namespace Charlotte
 			try
 			{
 				ret = int.Parse(Environment.GetEnvironmentVariable("NUMBER_OF_PROCESSORS"));
-				ret = IntTools.toRange(ret, 1, 128); // todo
+				ret = IntTools.toRange(ret, 1, 128); // HACK
 			}
 			catch
 			{ }
