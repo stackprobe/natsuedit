@@ -7,7 +7,7 @@
 ビルド済み配布物
 ----------------
 
-http://stackprobe.dip.jp/natsuedit
+http://stackprobe.ccsp.mydns.jp/natsuedit
 
 
 マニュアル
